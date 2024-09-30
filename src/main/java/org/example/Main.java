@@ -2,7 +2,10 @@ package org.example;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
+/*
+    priorityQueue()
 
+ */
 public class Main {
     public static void main(String[] args) {
 
@@ -11,12 +14,15 @@ public class Main {
 
     /**
      * comes OOTB, and support comparator.
+     * poll(), peek(), add(), offer() and size();
+     * poll is pop, peek just peeks. add and offer as same for PQ.
+
      * It implements two interfaces, queue and collection.
      * queue gives offer method and collection gives add method
      * capacity-constrained queues' add throws error if it cannot add. but here in PQ both are same.
 
      * It also doesn't hold any limit what you can add.
-     *
+
      * Observation: I have seen people using custom heaps and it is faster.
      *
      */
@@ -25,6 +31,7 @@ public class Main {
 
 
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+
         PriorityQueue<Integer> priorityQueueWithCustomComparator = new PriorityQueue<>((o1, o2) -> o1.compareTo(o2) * -1);
         /*
             two objects o1 and o2. How to think about the comparator:
@@ -44,8 +51,16 @@ public class Main {
         compareTo is also a REVERSE function?
         we want to reverse => o1 is greater than o2 => reverse hence return 1.
 
+        IF YOU NEED EXACTLY kth element FROM PQ YOU CANNOT ACHIEVE THAT HERE.
+        because you cannot fix the size of the queue. if you could, then you could have just added all the elements
+        and get the top using POLL.
+
+        TO GET THE Kth element you need to Poll k times with this k.
 
         */
+
+
+
 
     }
 
