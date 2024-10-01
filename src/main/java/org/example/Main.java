@@ -76,7 +76,11 @@ public class Main {
 
         */
 
-        // Priority Queue example with a map entry and custom comparator
+        /*
+        Priority Queue example with a map entry and custom comparator
+        sorted by the frequency from highest to lowest.
+        words with the same frequency by their lexicographical order
+         */
         PriorityQueue<Map.Entry<String,Integer>> pq = new PriorityQueue<>((a, b) -> {
             if(a.getValue() > b.getValue())
                 return -1;
