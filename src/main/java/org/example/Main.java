@@ -1,6 +1,8 @@
 package org.example;
 
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.PriorityQueue;
 /*
     priorityQueue()
@@ -9,6 +11,21 @@ import java.util.PriorityQueue;
 public class Main {
     public static void main(String[] args) {
 
+    }
+
+    private static void map(){
+        String[] words = new String[]{"i","love","leetcode","i","love","coding"};
+        HashMap<String,Integer> map = new HashMap<>();
+
+        // compute method to create a frequency map of a list of words. very short compared to if else.
+        for(String each : words){
+            map.compute(each, (key,value) -> (value == null?  1 : value + 1));
+        }
+
+        // iterating over a map
+        for(Map.Entry<String,Integer> each : map.entrySet()){ // VERRRRY IRRITATING here we can do directly entrySet
+            System.out.println(each.getKey() + ":" + each.getValue()); // but each entry we need to do getKey and getValue;
+        }
     }
 
 
@@ -59,7 +76,15 @@ public class Main {
 
         */
 
-
+        // Priority Queue example with a map entry and custom comparator
+        PriorityQueue<Map.Entry<String,Integer>> pq = new PriorityQueue<>((a, b) -> {
+            if(a.getValue() > b.getValue())
+                return -1;
+            else if(a.getValue().equals(b.getValue())){
+                return a.getKey().compareTo(b.getKey());
+            }
+            return 1;
+        });
 
 
     }
